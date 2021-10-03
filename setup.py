@@ -28,7 +28,7 @@ def ImageToCoord(path_dir):
 
 
 # Hough Transform for line
-def HoughTransformLine(*coord_x, *coord_y):
+def HoughTransformLine(coord_x, coord_y):
   THETA = 179
   RADIUS = 2000
   H = [[0 for k in range(THETA)] for j in range(RADIUS)]
@@ -41,7 +41,7 @@ def HoughTransformLine(*coord_x, *coord_y):
         H[r+1+RADIUS//2][x]+=1
   return H # accumulator function
       
-def HoughTransformCircle(*coord_x, *coord_y):
+def HoughTransformCircle(coord_x, coord_y):
   HEIGHT = 1000
   WIDTH = 1000
   H = [[[0 for k in range(410)] for j in range(HEIGHT)] for i in range(WIDTH)]
@@ -64,7 +64,7 @@ def FindArgMax(*H):
   return xmax, ymax
 
 #output
-def CoordToImage( *coord_x, *coord_y):
+def CoordToImage( coord_x, coord_y):
   display = []
   sub = []
   for i in range(WIDTH):
